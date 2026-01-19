@@ -1,0 +1,119 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, #0052D4, #4364F7, #6FB1FC);
+}
+
+.alert-banner {
+    animation: pulse-bg 2s infinite;
+}
+
+@keyframes pulse-bg {
+    0% { background-color: #fca5a5; }
+    50% { background-color: #ef4444; }
+    100% { background-color: #fca5a5; }
+}
+
+/* New Urgent Banner Style */
+.urgent-banner-styled {
+    background-color: #FFF7ED; /* Tailwind orange-50 */
+    border-left: 5px solid #F97316; /* Tailwind orange-500 */
+    color: #C2410C; /* Tailwind orange-700 */
+    /* Ensure it fits its content width by default, but max-w-3xl in HTML controls overall size */
+}
+
+/* Removed old .urgent-banner and @keyframes pulse-urgent-bg */
+
+.age-button-cta {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.age-button-cta.selected {
+    background-color: #059669;
+    color: white;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.5);
+}
+.age-button-cta:hover:not(.selected) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Custom text colors */
+.text-red-custom { color: #EF4444; }
+.text-green-custom { color: #34D399; }
+
+/* SVG Map Styling */
+#us-map-svg-container svg {
+    width: 100%;
+    height: auto;
+}
+#us-map-svg-container .land {
+    fill: #e5e7eb;
+    stroke: #ffffff;
+    stroke-width: 0.5;
+    transition: fill 0.3s ease, opacity 0.3s ease;
+}
+#us-map-svg-container .land:hover {
+    fill: #93c5fd;
+    opacity: 0.8;
+}
+#us-map-svg-container .land.highlighted {
+    fill: #2563eb;
+    animation: pulse-map-highlight 1.5s infinite alternate;
+}
+
+@keyframes pulse-map-highlight {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* Testimonial Scrolling Animation */
+.scrolling-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.scrolling-content {
+    display: flex;
+    width: fit-content;
+    animation: scroll-left 60s linear infinite;
+}
+
+.scrolling-wrapper:hover .scrolling-content {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    width: 300px;
+    margin: 0 1rem;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
