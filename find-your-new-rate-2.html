@@ -223,6 +223,13 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Urgency Bar -->
+    <div
+        style="background: #B71C1C; color: white; padding: 12px 20px; text-align: center; font-size: 15px; font-weight: 600; width: 100%;">
+        🔴 LIVE UPDATE: 1,247 drivers in your area compared rates today | ⏰ Rate increases take effect <span
+            id="urgency-date">December 31st</span>
+    </div>
+
     <header>
         <h1>My Insurance Went From $179 to $39 Thanks To This Website!</h1>
     </header>
@@ -289,6 +296,24 @@
     <script>
         // Update Year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Update urgency bar date
+        (function () {
+            const urgencyDateElement = document.getElementById('urgency-date');
+            if (urgencyDateElement) {
+                const today = new Date();
+                const day = today.getDate();
+                const month = today.toLocaleString('en-US', { month: 'long' });
+
+                const getOrdinal = (n) => {
+                    const s = ["th", "st", "nd", "rd"];
+                    const v = n % 100;
+                    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+                };
+
+                urgencyDateElement.textContent = `${month} ${getOrdinal(day)}`;
+            }
+        })();
     </script>
 
 </body>
